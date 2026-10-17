@@ -19,6 +19,10 @@ The site is Hugo with the [Hextra](https://github.com/imfing/hextra) theme (v0.1
 
 GitHub Pages serves `docs/` from the `main` branch (Settings, Pages, Source: Deploy from a branch, `main`, `/docs`). There is no CI. `docs/` is generated, so never edit it by hand.
 
+## Give a project a docs site
+
+[PROJECT-SITES.md](PROJECT-SITES.md) explains how to give a Labs project a docs site that matches this one, and how to list it here.
+
 ## Requirements
 
 - Hugo extended 0.168.0. `build.sh` stops on any other version.
