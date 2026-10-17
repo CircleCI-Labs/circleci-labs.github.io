@@ -1,0 +1,68 @@
+{{- /*
+  Landing page: hero, one card for each project in data/projects.yaml, then About and Support from content/_index.md.
+*/ -}}
+{{ define "main" }}
+  {{- $home := site.Params.home -}}
+
+  {{ partial "sidebar.html" (dict "context" . "disableSidebar" true) }}
+  <main id="content" class="cci-home">
+    {{ partial "custom/page-begin.html" . }}
+
+    <section class="cci-hero" aria-labelledby="cci-hero-title">
+      <div class="cci-wrap cci-hero-grid">
+        <div class="cci-hero-copy">
+          <h1 id="cci-hero-title" class="cci-mega">{{ $home.title }}</h1>
+          <p class="cci-hero-tagline">{{ $home.tagline }}</p>
+          <p class="cci-hero-lead">{{ $home.lead }}</p>
+          <div class="cci-actions">
+            <a class="cci-btn cci-btn-primary" href="#projects">See the projects {{ partial "utils/icon.html" (dict "name" "arrow-right" "attributes" `height=20 aria-hidden="true"`) }}</a>
+            <a class="cci-btn cci-btn-secondary" href="{{ site.Params.repo }}">GitHub organization</a>
+          </div>
+          <p class="cci-notice" role="note"><strong>CircleCI Labs, not an official CircleCI product.</strong> CircleCI Support does not cover these projects. <a href="#support">Read the support model</a>.</p>
+        </div>
+
+        <div class="cci-hero-art">
+          <span class="cci-jelly" aria-hidden="true">{{ (resources.Get "icons/jelly-pixel-default.svg").Content | safeHTML }}</span>
+          <figure class="cci-terminal" aria-label="CircleCI Labs at a glance">
+            <figcaption><span>At a glance</span></figcaption>
+            <dl class="cci-glance">
+              {{- range $home.glance }}
+                <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+              {{- end }}
+            </dl>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="cci-features" aria-labelledby="cci-projects-title">
+      <div class="cci-wrap">
+        <h2 id="cci-projects-title" class="cci-section-title">Projects</h2>
+        <ul class="cci-cards">
+          {{- range hugo.Data.projects }}
+            <li class="cci-card">
+              <span class="cci-card-icon" aria-hidden="true">{{ (resources.Get (printf "icons/lucide/%s.svg" .icon)).Content | safeHTML }}</span>
+              <h3>{{ .name }}</h3>
+              <p>{{ .pitch }}</p>
+              <p class="cci-card-status"><strong>Status:</strong> {{ .status }}</p>
+              <div class="cci-card-links">
+                <a class="cci-tertiary" href="{{ .docs }}">Documentation {{ partial "utils/icon.html" (dict "name" "arrow-right" "attributes" `height=18 aria-hidden="true"`) }}</a>
+                <a class="cci-tertiary" href="{{ .repo }}">GitHub repository {{ partial "utils/icon.html" (dict "name" "arrow-right" "attributes" `height=18 aria-hidden="true"`) }}</a>
+              </div>
+            </li>
+          {{- end }}
+        </ul>
+      </div>
+    </section>
+
+    <section class="cci-readme">
+      <div class="cci-wrap cci-readme-wrap">
+        <div class="content cci-prose">
+          {{ .Content }}
+        </div>
+      </div>
+    </section>
+
+    {{ partial "custom/page-end.html" . }}
+  </main>
+{{ end }}
