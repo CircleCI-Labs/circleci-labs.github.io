@@ -17,5 +17,5 @@ CircleCI support does not cover Labs projects. Field engineers handle issues on 
 |---|---|
 | A bug or a feature request for a Labs project | The GitHub issues of that project |
 | A question or an idea | [CircleCI Discuss](https://discuss.circleci.com/) |
-| A problem with the CircleCI platform itself | [CircleCI support](https://support.circleci.com/hc/en-us) |
+| A problem with the CircleCI platform or the runner agent | [CircleCI support](https://support.circleci.com/hc/en-us) |
 | A security vulnerability | [security@circleci.com](mailto:security@circleci.com), never a public issue |
