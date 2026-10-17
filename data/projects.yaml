@@ -4,15 +4,15 @@
 #   name      the title of the card
 #   icon      a file in assets/icons/lucide/ without .svg (layers, server, refresh-cw, shield-check)
 #   pitch     what it does, in one or two sentences
-#   status    maturity, stated plainly (for example "Pre-1.0" or "Experimental")
+#   status    maturity, stated plainly (for example "Pre-release (0.x)" or "Experimental")
 #   docs      URL of the documentation site
 #   repo      URL of the GitHub repository
 
 - name: Machine runner swarm
   icon: server
   pitch: >-
-    CircleCI machine runners on Docker Swarm. A clean container for every job, on Linux and Windows Server.
-    An experimental add-on runs jobs in microVMs.
-  status: Pre-1.0. Linux and Windows Server tested, microVM experimental.
+    Self-hosted CircleCI runners that give every job a clean container, on the Docker hosts you already run.
+    Linux and Windows Server, no Kubernetes. An experimental add-on runs jobs in microVMs.
+  status: Pre-release (0.x). Linux and Windows Server tested, microVM experimental.
   docs: https://circleci-labs.github.io/machine-runner-swarm/
   repo: https://github.com/CircleCI-Labs/machine-runner-swarm
