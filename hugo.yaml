@@ -78,7 +78,7 @@ params:
     # A new key shows the banner again to visitors who closed an old one.
     key: labs-disclaimer
     message: >-
-      **CircleCI Labs.** Not an official CircleCI product and not supported by CircleCI Support.
+      **CircleCI Labs.** Not an official CircleCI product and not supported by CircleCI support.
 
   navbar:
     displayTitle: true
