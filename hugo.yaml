@@ -1,0 +1,113 @@
+# Hugo configuration of the CircleCI Labs home site (README.md). The projects are in data/projects.yaml.
+#
+# This is the user site of the CircleCI-Labs organization: GitHub Pages serves it at the root of
+# https://circleci-labs.github.io/. Each project docs site is a project site below that root, so project
+# paths never collide with pages here.
+baseURL: https://circleci-labs.github.io/
+title: CircleCI Labs
+locale: en-US
+enableRobotsTXT: true
+disableKinds:
+  - taxonomy
+  - term
+  - rss
+  - section
+
+# Hugo writes the site into docs/, the folder that GitHub Pages serves from the main branch (build.sh).
+publishDir: docs
+
+module:
+  hugoVersion:
+    extended: true
+    # build.sh pins the exact version (0.168.0); this is the minimum that the theme supports.
+    min: 0.146.0
+  imports:
+    - path: github.com/imfing/hextra
+
+markup:
+  highlight:
+    # Required by the theme (dark mode of code blocks).
+    noClasses: false
+
+menu:
+  main:
+    - identifier: projects
+      name: Projects
+      url: "/index.html#projects"
+      weight: 1
+    - identifier: about
+      name: About
+      url: "/index.html#about"
+      weight: 2
+    - identifier: support
+      name: Support
+      url: "/index.html#support"
+      weight: 3
+    - name: Theme
+      weight: 4
+      params:
+        type: theme-toggle
+    - name: GitHub
+      weight: 5
+      url: https://github.com/CircleCI-Labs
+      params:
+        icon: github
+
+params:
+  description: Open projects that CircleCI field engineers build with customers.
+  externalLinkDecoration: false
+  repo: https://github.com/CircleCI-Labs
+
+  # The landing page (layouts/home.html). The text under "About" and "Support" is in content/_index.md.
+  home:
+    title: CircleCI Labs
+    tagline: Open projects built by CircleCI field engineers with customers
+    lead: Working solutions for problems that customers hit and the product does not cover. Each project is open source, with its own docs.
+    glance:
+      - label: built by
+        value: CircleCI field engineers
+      - label: built with
+        value: customers
+      - label: license
+        value: MIT
+      - label: support
+        value: best effort, GitHub issues
+
+  banner:
+    # The banner cannot be dismissed: custom.css hides the close button, and custom/banner.html renders the text.
+    # A new key shows the banner again to visitors who closed an old one.
+    key: labs-disclaimer
+    message: >-
+      **CircleCI Labs.** Not an official CircleCI product and not supported by CircleCI Support.
+
+  navbar:
+    displayTitle: true
+    displayLogo: false
+    width: normal
+
+  theme:
+    default: system
+    # The toggle is in the header (menu item of type theme-toggle), not in the sidebar.
+    displayToggle: false
+
+  footer:
+    enable: true
+    displayCopyright: false
+    displayPoweredBy: false
+    width: normal
+
+  search:
+    enable: false
+
+  highlight:
+    copy:
+      enable: true
+      display: always
+
+  page:
+    width: normal
+    contextMenu:
+      enable: false
+
+  toc:
+    displayTags: false
