@@ -16,3 +16,12 @@
   status: Pre-release (0.x). Linux and Windows Server tested, microVM experimental.
   docs: https://circleci-labs.github.io/machine-runner-swarm/
   repo: https://github.com/CircleCI-Labs/machine-runner-swarm
+
+- name: Smarter Workflows
+  icon: layers
+  pitch: >-
+    A planner for CircleCI setup workflows that runs only the jobs a change can reach.
+    It works out each job's inputs from your config and repository, with no changes to your jobs, and checks every plan against Rego guardrails.
+  status: Pre-release (0.x).
+  docs: https://circleci-labs.github.io/smarter-workflows/
+  repo: https://github.com/CircleCI-Labs/smarter-workflows
