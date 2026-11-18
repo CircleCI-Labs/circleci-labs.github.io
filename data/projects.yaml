@@ -25,3 +25,12 @@
   status: Pre-release (0.x).
   docs: https://circleci-labs.github.io/smarter-workflows/
   repo: https://github.com/CircleCI-Labs/smarter-workflows
+
+- name: Runner job wrapper
+  icon: activity
+  pitch: >-
+    A small command_prefix wrapper for CircleCI machine runner that records which job ran on which host,
+    with job, workflow and pipeline IDs, so you can join CircleCI's OpenTelemetry spans with host metrics and logs in Grafana, Datadog or any other backend.
+  status: Pre-release (0.x). Tested on Linux machine runner 3.1 with Grafana Cloud; Datadog documented, not tested.
+  docs: https://circleci-labs.github.io/runner-job-wrapper/
+  repo: https://github.com/CircleCI-Labs/runner-job-wrapper
